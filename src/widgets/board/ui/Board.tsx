@@ -1,0 +1,56 @@
+import { DndContext, PointerSensor, useSensor, useSensors, type DragEndEvent } from '@dnd-kit/core';
+import { BoardColumn } from '@/features/boardColumn/ui/BoardColumn';
+import { Button } from '@/shared/ui/Button/Button';
+import { useMemo } from 'react';
+import { BOARD_COLUMNS_SCHEMA } from '../model/schema';
+import type { Task } from '@/shared/model/types';
+import { useTaskStore } from '@/entities/task/model/taskStore';
+import { useModalStore } from '@/shared/model/commonStore';
+
+export const Board = () => {
+  const { tasks, updateTask } = useTaskStore();
+  const { openModal } = useModalStore();
+
+  const pointerSensor = useSensor(PointerSensor, {
+    activationConstraint: {
+      distance: 5,
+    },
+  });
+
+  const sensors = useSensors(pointerSensor);
+
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { over, active } = event;
+    if (!over) return;
+
+    updateTask({
+      id: String(active.id),
+      status: over.id as Task['status'],
+    });
+  };
+
+  return (
+    <div className="p-6 h-screen bg-gray-50 overflow-hidden">
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-bold">Kanban Board</h1>
+
+        <Button onClick={() => openModal('task')}>+ Створити</Button>
+      </div>
+
+      <DndContext onDragEnd={handleDragEnd} sensors={sensors}>
+        <div className="grid grid-cols-3 gap-6 min-h-svh">
+          {BOARD_COLUMNS_SCHEMA.map(({ title, status }) => {
+            const tasksForColumn = useMemo(
+              () => tasks.filter((t) => t.status === status),
+              [tasks, status],
+            );
+
+            return (
+              <BoardColumn key={status} title={title} status={status} tasks={tasksForColumn} />
+            );
+          })}
+        </div>
+      </DndContext>
+    </div>
+  );
+};
