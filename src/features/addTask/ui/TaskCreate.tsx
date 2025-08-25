@@ -1,6 +1,6 @@
 import { Modal } from '@/shared/ui/Modal/Modal';
 import { Formik, Form } from 'formik';
-import { memo } from 'react';
+import { memo, type FC } from 'react';
 import { CREATE_TASK_SCHEMA } from '../model/schema';
 import { FormikFileField } from '@/shared/ui/FormikFileField/FormikFileField';
 import { NEXT_DAY } from '@/shared/lib/utils';
@@ -9,13 +9,13 @@ import { CREATE_TASK_INITIAL } from '../model/contastants';
 import { useTaskStore, useUserStore } from '@/entities/task/model/taskStore';
 import { useModalStore } from '@/shared/model/commonStore';
 
-export const TaskCreate = memo(() => {
-  const { closeModal, openModal } = useModalStore();
+export const TaskCreate: FC<{ onClose: () => void }> = memo(({ onClose }) => {
+  const { openModal } = useModalStore();
   const addTask = useTaskStore((state) => state.addTask);
   const selectedUser = useUserStore((state) => state.selectedUser);
 
   return (
-    <Modal onClose={closeModal}>
+    <Modal onClose={onClose}>
       <h2 className="text-lg font-semibold mb-4">Створити Задачу</h2>
 
       <Formik
@@ -33,7 +33,7 @@ export const TaskCreate = memo(() => {
             status: 'todo',
           });
           resetForm();
-          closeModal();
+          onClose();
         }}
       >
         {() => (

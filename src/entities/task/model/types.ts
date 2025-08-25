@@ -25,5 +25,5 @@ export type UserState = {
 
 export interface ITaskDetailsModal {
   task: Task | null;
-  closeModal: any;
+  closeModal: () => void;
 }

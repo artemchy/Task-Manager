@@ -1,10 +1,10 @@
 import { Modal } from '@/shared/ui/Modal/Modal';
-import { memo } from 'react';
+import { memo, type FC } from 'react';
 import { USERS_MOCK } from '../model/contastants';
 import { useModalStore } from '@/shared/model/commonStore';
 import { useUserStore } from '@/entities/task/model/taskStore';
 
-export const SelectUser = memo(() => {
+export const SelectUser: FC<{ onClose: () => void }> = memo(({ onClose }) => {
   const closeModal = useModalStore((state) => state.closeModal);
   const setSelectedUser = useUserStore((state) => state.setSelectedUser);
 
@@ -14,7 +14,7 @@ export const SelectUser = memo(() => {
   };
 
   return (
-    <Modal onClose={closeModal}>
+    <Modal onClose={onClose}>
       <h2 className="text-lg font-semibold mb-4">Вибери Користувача</h2>
       <ul className="space-y-2">
         {USERS_MOCK.map((user) => (

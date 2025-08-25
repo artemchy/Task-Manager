@@ -21,7 +21,7 @@ export interface IFormikField {
 
 type Modal = {
   name: string;
-  payload?: any;
+  payload?: unknown;
 };
 
 export type Task = {
@@ -38,7 +38,7 @@ export type Task = {
 export type ModalState = {
   name: string | null;
   modals: Modal[];
-  payload: any;
-  openModal: (name: string, payload?: any) => void;
+  payload: unknown;
+  openModal: (name: string, payload?: unknown) => void;
   closeModal: () => void;
 };

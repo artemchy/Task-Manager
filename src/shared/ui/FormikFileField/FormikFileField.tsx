@@ -1,6 +1,7 @@
 import { type FC, useState } from 'react';
-import { Field, ErrorMessage } from 'formik';
+import { Field, ErrorMessage, type FormikProps } from 'formik';
 import clsx from 'clsx';
+import type { Task } from '@/shared/model/types';
 
 type Props = {
   name: string;
@@ -14,7 +15,7 @@ export const FormikFileField: FC<Props> = ({ name, label, placeholder, className
 
   const handleFileChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    setFieldValue: (field: string, value: any, shouldValidate?: boolean) => void,
+    setFieldValue: (field: string, value: string, shouldValidate?: boolean) => void,
   ) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -34,7 +35,7 @@ export const FormikFileField: FC<Props> = ({ name, label, placeholder, className
       {label && <label className="block text-sm mb-1">{label}</label>}
 
       <Field name={name}>
-        {({ form }: any) => (
+        {({ form }: { form: FormikProps<Task> }) => (
           <div>
             <input
               id={name}

@@ -1,14 +1,13 @@
 import { useTaskStore } from '@/entities/task/model/taskStore';
 import { TaskDetailsModal } from '@/entities/task/ui/TaskDetailsModal';
-import { useModalStore } from '@/shared/model/commonStore';
+import type { FC } from 'react';
 
-export const TaskDetailsContainer = () => {
-  const { closeModal } = useModalStore();
+export const TaskDetailsContainer: FC<{ onClose: () => void }> = ({ onClose }) => {
   const task = useTaskStore((state) => state.tasks.find((t) => t.id)) ?? null;
 
   return (
     <>
-      <TaskDetailsModal task={task} closeModal={closeModal} />
+      <TaskDetailsModal task={task} closeModal={onClose} />
     </>
   );
 };
