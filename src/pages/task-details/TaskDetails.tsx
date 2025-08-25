@@ -1,16 +1,22 @@
+import { useTaskStore } from '@/entities/task/model/taskStore';
 import { Modal } from '@/shared/ui/Modal/Modal';
-import { memo, type FC } from 'react';
-import type { ITaskDetailsModal } from '../model/types';
+import { memo } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
-export const TaskDetailsModal: FC<ITaskDetailsModal> = memo(({ task, closeModal }) => {
-  if (!task) {
-    return null;
-  }
+const TaskDetails = memo(({}) => {
+  const params = useParams();
+  const navigate = useNavigate();
+
+  const task = useTaskStore((state) => state.tasks.find((t) => t.id === params.id)) ?? null;
+  if (!task) return null;
 
   const { title, description, priority, deadline, assignee } = task;
-  debugger;
+
+  const handleClose = () => {
+    navigate(-1);
+  };
   return (
-    <Modal onClose={closeModal}>
+    <Modal onClose={handleClose}>
       <h1 className="text-3xl font-bold mb-6">{title}</h1>
       <div className="space-y-4">
         <p>
@@ -51,3 +57,5 @@ export const TaskDetailsModal: FC<ITaskDetailsModal> = memo(({ task, closeModal 
     </Modal>
   );
 });
+
+export default TaskDetails;

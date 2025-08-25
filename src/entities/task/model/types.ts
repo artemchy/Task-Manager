@@ -22,8 +22,3 @@ export type UserState = {
   setSelectedUser: (user: User | null) => void;
   selectedUser: User | null;
 };
-
-export interface ITaskDetailsModal {
-  task: ITask | null;
-  closeModal: () => void;
-}

@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from 'react';
 
 interface IModal {
-  onClose: () => void;
+  onClose?: () => void;
   children: ReactNode;
 }
 

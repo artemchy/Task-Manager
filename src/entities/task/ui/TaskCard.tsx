@@ -2,14 +2,14 @@ import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
 import { memo, type FC } from 'react';
 import type { ITask } from '@/shared/model/types';
-import { useModalStore } from '@/shared/model/commonStore';
+import { useNavigate } from 'react-router-dom';
 
 interface ITaskCard {
   task: ITask;
 }
 
 export const TaskCard: FC<ITaskCard> = memo(({ task }) => {
-  const openModal = useModalStore((state) => state.openModal);
+  const navigate = useNavigate();
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: task.id,
   });
@@ -22,7 +22,7 @@ export const TaskCard: FC<ITaskCard> = memo(({ task }) => {
     <div
       ref={setNodeRef}
       style={style}
-      onClick={() => openModal('details')}
+      onClick={() => navigate(`/task-details/${task.id}`)}
       {...attributes}
       {...listeners}
       className="bg-white shadow-md rounded-sm p-3 mb-3 border border-gray-200 cursor-pointer active:cursor-grabbing"
