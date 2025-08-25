@@ -1,4 +1,4 @@
-import type { Task } from "@/shared/model/types";
+import type { Task } from '@/shared/model/types';
 
 export interface IBoardColumn {
   title: string;
