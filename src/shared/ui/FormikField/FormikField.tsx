@@ -2,7 +2,7 @@ import { memo, type FC } from 'react';
 import { Field, ErrorMessage } from 'formik';
 import clsx from 'clsx';
 import type { IFormikField } from '@/shared/model/types';
-import { PRIORITY_TASK_OPTIONS } from '@/features/addTask/model/contastants';
+import { PRIORITY_TASK_OPTIONS } from '@/features/addTask/model/constants';
 
 export const FormikField: FC<IFormikField> = memo(
   ({ name, label, placeholder, type = 'text', className, min, children }) => {

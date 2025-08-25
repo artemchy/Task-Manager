@@ -5,7 +5,7 @@ import { CREATE_TASK_SCHEMA } from '../model/schema';
 import { FormikFileField } from '@/shared/ui/FormikFileField/FormikFileField';
 import { NEXT_DAY } from '@/shared/lib/utils';
 import { FormikField } from '@/shared/ui/FormikField/FormikField';
-import { CREATE_TASK_INITIAL } from '../model/contastants';
+import { CREATE_TASK_INITIAL } from '../model/constants';
 import { useTaskStore, useUserStore } from '@/entities/task/model/taskStore';
 import { useModalStore } from '@/shared/model/commonStore';
 import { Button } from '@/shared/ui/Button/Button';

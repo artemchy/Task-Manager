@@ -1,6 +1,6 @@
 import { Modal } from '@/shared/ui/Modal/Modal';
 import { memo, type FC } from 'react';
-import { USERS_MOCK } from '../model/contastants';
+import { USERS_MOCK } from '../model/constants';
 import { useModalStore } from '@/shared/model/commonStore';
 import { useUserStore } from '@/entities/task/model/taskStore';
 
