@@ -3,8 +3,6 @@
 This project is a **Task Manager** built with **React** and **Zustand**.  
 It demonstrates a **global modal management system** supporting multiple modal types and nested modals for complex task workflows.
 
----
-
 ## Features
 
 - Manage tasks: create, view details, assign users
@@ -14,8 +12,6 @@ It demonstrates a **global modal management system** supporting multiple modal t
 - Centralized `ModalProvider` for rendering active modals
 - Payload passing to modals for dynamic data
 - Selected user state management for `SelectUser` modal
-
----
 
 ## Getting Started
 
