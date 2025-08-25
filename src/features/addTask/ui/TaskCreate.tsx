@@ -8,6 +8,7 @@ import { FormikField } from '@/shared/ui/FormikField/FormikField';
 import { CREATE_TASK_INITIAL } from '../model/contastants';
 import { useTaskStore, useUserStore } from '@/entities/task/model/taskStore';
 import { useModalStore } from '@/shared/model/commonStore';
+import { Button } from '@/shared/ui/Button/Button';
 
 export const TaskCreate: FC<{ onClose: () => void }> = memo(({ onClose }) => {
   const { openModal } = useModalStore();
@@ -52,18 +53,15 @@ export const TaskCreate: FC<{ onClose: () => void }> = memo(({ onClose }) => {
               <button
                 type="button"
                 onClick={() => openModal('user')}
-                className="text-blue-600 underline"
+                className="text-blue-600 underline cursor-pointer"
               >
-                Вибери виконавця
+                Обери виконавця
               </button>
             </div>
 
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-sm hover:bg-blue-700"
-            >
+            <Button type="submit" className="w-full">
               Створити
-            </button>
+            </Button>
           </Form>
         )}
       </Formik>

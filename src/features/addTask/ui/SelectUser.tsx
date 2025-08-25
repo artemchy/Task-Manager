@@ -15,13 +15,13 @@ export const SelectUser: FC<{ onClose: () => void }> = memo(({ onClose }) => {
 
   return (
     <Modal onClose={onClose}>
-      <h2 className="text-lg font-semibold mb-4">Вибери Користувача</h2>
+      <h2 className="text-lg font-semibold mb-4">Обери Користувача</h2>
       <ul className="space-y-2">
         {USERS_MOCK.map((user) => (
           <li key={user.id}>
             <button
               onClick={() => handleSelect(user)}
-              className="w-full text-left px-3 py-2 bg-gray-100 rounded-sm hover:bg-gray-200"
+              className="w-full text-left px-3 py-2 bg-gray-100 rounded-sm hover:bg-gray-200 cursor-pointer duration-300 ease-out"
             >
               {user.name}
             </button>

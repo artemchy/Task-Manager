@@ -24,16 +24,16 @@ type Modal = {
   payload?: unknown;
 };
 
-export type Task = {
+export interface ITask {
   id: string;
   title: string;
   description: string;
   priority: PrioritiesType;
   deadline: string;
-  file?: string;
-  assignee?: User | null;
+  file: string;
+  assignee: User | null;
   status: 'todo' | 'in-progress' | 'done';
-};
+}
 
 export type ModalState = {
   name: string | null;

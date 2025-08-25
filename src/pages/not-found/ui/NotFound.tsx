@@ -7,7 +7,7 @@ export const NotFoundPage = () => {
       <p className="mt-4 text-lg text-gray-600">Йой! Сторінка не знайдена</p>
       <Link
         to="/"
-        className="mt-6 rounded-sm bg-blue-600 px-6 py-3 text-white shadow-md transition hover:bg-blue-700"
+        className="mt-6 rounded-sm bg-blue-600 px-6 py-3 text-white shadow-md transition hover:bg-blue-700 "
       >
         Повернутись на головну
       </Link>

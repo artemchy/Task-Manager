@@ -17,7 +17,7 @@ export const Modal: FC<IModal> = ({ onClose, children }) => {
       >
         <button
           onClick={onClose}
-          className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 cursor-pointer"
+          className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 cursor-pointer duration-300 ease-out"
         >
           ✕
         </button>

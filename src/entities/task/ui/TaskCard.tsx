@@ -1,11 +1,11 @@
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
 import { memo, type FC } from 'react';
-import type { Task } from '@/shared/model/types';
+import type { ITask } from '@/shared/model/types';
 import { useModalStore } from '@/shared/model/commonStore';
 
 interface ITaskCard {
-  task: Task;
+  task: ITask;
 }
 
 export const TaskCard: FC<ITaskCard> = memo(({ task }) => {

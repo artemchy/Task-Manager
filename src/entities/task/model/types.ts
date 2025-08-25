@@ -1,4 +1,4 @@
-import type { Task } from '@/shared/model/types';
+import type { ITask } from '@/shared/model/types';
 
 export type User = {
   id: string;
@@ -9,11 +9,11 @@ export type ModalState = {
   selectedUser: User | null;
 };
 
-export type updatedTaskType = Partial<Task> & { id: string };
+export type updatedTaskType = Partial<ITask> & { id: string };
 
 export type TaskState = {
-  tasks: Task[];
-  addTask: (task: Task) => void;
+  tasks: ITask[];
+  addTask: (task: ITask) => void;
   updateTask: (updatedTask: updatedTaskType) => void;
   removeTask: (id: string) => void;
 };
@@ -24,6 +24,6 @@ export type UserState = {
 };
 
 export interface ITaskDetailsModal {
-  task: Task | null;
+  task: ITask | null;
   closeModal: () => void;
 }

@@ -1,11 +1,11 @@
 import { DndContext, PointerSensor, useSensor, useSensors, type DragEndEvent } from '@dnd-kit/core';
 import { BoardColumn } from '@/features/boardColumn/ui/BoardColumn';
-import { Button } from '@/shared/ui/Button/Button';
 import { useMemo } from 'react';
 import { BOARD_COLUMNS_SCHEMA } from '../model/schema';
-import type { Task } from '@/shared/model/types';
+import type { ITask } from '@/shared/model/types';
 import { useTaskStore } from '@/entities/task/model/taskStore';
 import { useModalStore } from '@/shared/model/commonStore';
+import { Button } from '@/shared/ui/Button/Button';
 
 export const Board = () => {
   const { tasks, updateTask } = useTaskStore();
@@ -25,7 +25,7 @@ export const Board = () => {
 
     updateTask({
       id: String(active.id),
-      status: over.id as Task['status'],
+      status: over.id as ITask['status'],
     });
   };
 
@@ -38,7 +38,7 @@ export const Board = () => {
       </div>
 
       <DndContext onDragEnd={handleDragEnd} sensors={sensors}>
-        <div className="grid grid-cols-3 gap-6 min-h-svh">
+        <div className="md:gap-6 md:min-h-svh md:grid md:grid-cols-3">
           {BOARD_COLUMNS_SCHEMA.map(({ title, status }) => {
             const tasksForColumn = useMemo(
               () => tasks.filter((t) => t.status === status),

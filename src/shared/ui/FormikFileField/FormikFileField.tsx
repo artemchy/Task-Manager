@@ -1,7 +1,7 @@
 import { type FC, useState } from 'react';
 import { Field, ErrorMessage, type FormikProps } from 'formik';
 import clsx from 'clsx';
-import type { Task } from '@/shared/model/types';
+import type { ITask } from '@/shared/model/types';
 
 type Props = {
   name: string;
@@ -35,7 +35,7 @@ export const FormikFileField: FC<Props> = ({ name, label, placeholder, className
       {label && <label className="block text-sm mb-1">{label}</label>}
 
       <Field name={name}>
-        {({ form }: { form: FormikProps<Task> }) => (
+        {({ form }: { form: FormikProps<ITask> }) => (
           <div>
             <input
               id={name}
