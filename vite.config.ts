@@ -6,6 +6,18 @@ import type { MinifyOptions } from 'terser';
 
 // https://vite.dev/config/
 export default defineConfig({
+  server: {
+    port: 3000,
+    open: true,
+    strictPort: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
   build: {
     minify: 'terser',
     terserOptions: {
@@ -14,6 +26,8 @@ export default defineConfig({
         drop_debugger: true,
       } as MinifyOptions,
     },
+    sourcemap: true,
+    target: 'esnext',
     rollupOptions: {
       output: {
         manualChunks(id) {
@@ -27,7 +41,8 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['react', 'react-dom'],
+    include: ['react', 'react-dom', 'tailwind-merge', 'tailwind-variants'],
+    exclude: [],
   },
   plugins: [react(), tailwindcss()],
   resolve: {
@@ -38,4 +53,5 @@ export default defineConfig({
       '@shared': resolve(__dirname, './src/shared'),
     },
   },
+  logLevel: 'info',
 });
