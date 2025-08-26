@@ -52,7 +52,7 @@ This project follows **FSD (Feature-Sliced Design)** principles to organize the 
   │ └── /ui
   │ ├── TaskCard.tsx
   │ ├── TaskDetailsContainer.tsx
-  │ └── TaskDetailsModal.tsx
+  │ 
   ├── /features
   │ ├── /addTask
   │ │ ├── /model
