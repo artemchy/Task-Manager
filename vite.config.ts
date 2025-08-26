@@ -41,7 +41,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'tailwind-merge', 'tailwind-variants'],
+    include: ['react', 'react-dom', 'tailwind-variants', 'tailwind-merge'],
     exclude: [],
   },
   plugins: [react(), tailwindcss()],
