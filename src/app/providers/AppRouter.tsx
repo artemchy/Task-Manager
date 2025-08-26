@@ -7,9 +7,9 @@ export const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<BoardPage />} />
-        <Route path="/task-details/:id" element={<TaskDetails />} />
-
+        <Route path="/" element={<BoardPage />}>
+          <Route path="task-details/:id" element={<TaskDetails />} />
+        </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

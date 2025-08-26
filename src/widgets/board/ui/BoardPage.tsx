@@ -1,5 +1,11 @@
-import { Board } from '@/widgets/board/ui/Board';
+import { Outlet } from 'react-router-dom';
+import { Board } from './Board';
 
 export const BoardPage = () => {
-  return <Board />;
+  return (
+    <>
+      <Board />;
+      <Outlet />
+    </>
+  );
 };

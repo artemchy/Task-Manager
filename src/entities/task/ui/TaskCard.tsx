@@ -22,7 +22,7 @@ export const TaskCard: FC<ITaskCard> = memo(({ task }) => {
     <div
       ref={setNodeRef}
       style={style}
-      onClick={() => navigate(`/task-details/${task.id}`)}
+      onClick={() => navigate(`task-details/${task.id}`)}
       {...attributes}
       {...listeners}
       className="bg-white shadow-md rounded-sm p-3 mb-3 border border-gray-200 cursor-pointer active:cursor-grabbing"
