@@ -1,0 +1,13 @@
+diff --git a/node_modules/@dnd-kit/utilities/dist/utilities.esm.js b/node_modules/@dnd-kit/utilities/dist/utilities.esm.js
+index 21147d6..09b49ef 100644
+--- a/node_modules/@dnd-kit/utilities/dist/utilities.esm.js
++++ b/node_modules/@dnd-kit/utilities/dist/utilities.esm.js
+@@ -90,7 +90,7 @@ function getOwnerDocument(target) {
+  * @param callback {function} Callback function that is invoked when the dependencies of the hook change
+  */
+ 
+-const useIsomorphicLayoutEffect = canUseDOM ? useLayoutEffect : useEffect;
++const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
+ 
+ function useEvent(handler) {
+   const handlerRef = useRef(handler);
