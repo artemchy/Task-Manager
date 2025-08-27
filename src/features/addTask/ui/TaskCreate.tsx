@@ -15,6 +15,8 @@ export const TaskCreate: FC<{ onClose: () => void }> = memo(({ onClose }) => {
   const addTask = useTaskStore((state) => state.addTask);
   const selectedUser = useUserStore((state) => state.selectedUser);
 
+  const handleClick = () => openModal('user');
+
   return (
     <Modal onClose={onClose}>
       <h2 className="text-lg font-semibold mb-4">Створити Задачу</h2>
@@ -52,7 +54,7 @@ export const TaskCreate: FC<{ onClose: () => void }> = memo(({ onClose }) => {
               </span>
               <button
                 type="button"
-                onClick={() => openModal('user')}
+                onClick={handleClick}
                 className="text-blue-600 underline cursor-pointer"
               >
                 Обери виконавця

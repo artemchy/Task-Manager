@@ -23,6 +23,10 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     console.error('ErrorBoundary caught an error:', error, errorInfo);
   }
 
+  handleClick() {
+    window.location.href = '/';
+  }
+
   render() {
     if (this.state.hasError) {
       return (
@@ -30,7 +34,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
           <div className="text-center mt-10">
             <h2 className="text-2xl mb-4">Йой! Щось пішло не так...</h2>
             <button
-              onClick={() => (window.location.href = '/')}
+              onClick={this.handleClick}
               className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
             >
               На головну

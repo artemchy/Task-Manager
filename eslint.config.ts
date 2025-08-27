@@ -32,6 +32,7 @@ export default defineConfig([
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
       'react/display-name': 'off',
+      'ban-ts-comment': 'off',
     },
   },
   globalIgnores(['!node_modules/', 'node_modules/*', 'dist', 'eslint.config.ts']),
