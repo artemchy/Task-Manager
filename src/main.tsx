@@ -6,7 +6,6 @@ import App from './app/App.tsx';
 
 // workaround for fixing the production bug with the dnd package
 if (typeof window === 'undefined') {
-  // @ts-expect-erro
   React.useLayoutEffect = React.useEffect;
 }
 
